@@ -1,0 +1,21 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.homePage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.collections {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}

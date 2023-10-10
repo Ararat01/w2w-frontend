@@ -1,0 +1,50 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    padding: 50px;
+    .image {
+        flex: 2;
+        height: 10%;
+        object-fit: contain;
+    }
+    .body {
+        text-align: center;
+        h2 {
+            font-size: 30px;
+            color: $white;
+        }
+        p {
+            font-size: 20px;
+            color: $gray;
+            max-width: 600px;
+            margin: 15px 0;
+        }
+        a {
+            color: $orange;
+            padding: 10px;
+            background-color: transparent;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 1px 0px;
+            transition: 0.3s;
+            &:focus {
+                outline: none;
+            }
+            &:hover {
+                border-color: $orange;
+            }
+        }
+    }
+}

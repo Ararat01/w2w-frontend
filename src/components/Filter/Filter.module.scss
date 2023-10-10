@@ -1,0 +1,62 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$strongblue: #1d555e;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.select {
+    position: relative;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+        width: 100%;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $orange;
+        padding: 10px 5px 10px 10px;
+        color: $white;
+        font-size: 18px;
+        span {
+            margin-right: 10px;
+        }
+    }
+}
+
+.options {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #292929;
+    height: 0;
+    right: 0;
+    top: 50px;
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
+    &.active {
+        height: auto;
+        overflow: auto;
+
+        opacity: 1;
+        z-index: 10;
+    }
+    button {
+        width: 200px;
+        color: $gray;
+        transition: .3s;
+        &:hover {
+            color: $white;
+        }
+    }
+}

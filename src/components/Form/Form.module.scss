@@ -1,0 +1,88 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$strongblue: #1d555e;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        padding: 10px 15px;
+        background-color: transparent;
+        border: 1px solid $orange;
+        margin-bottom: 10px;
+        color: $orange;
+        font-size: 16px;
+        border-radius: 0 10px 0px 10px;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: #ffca7f;
+            font-size: 14px;
+        }
+    }
+    &__btn {
+        background-color: $orange;
+        color: $purple;
+        font-size: 16px;
+        font-weight: 300;
+        border: 1px solid $orange;
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    &__forgotBtn {
+        background-color: transparent;
+        border: none;
+        color: $gray;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    textarea {
+        width: 100%;
+        max-width: 600px;
+        min-height: 100px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: transparent;
+        color: $white;
+        border: 1px solid $red;
+        margin-bottom: 5px;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: $gray;
+        }
+    }
+    button {
+        background-color: transparent;
+        color: $red;
+        font-size: 16px;
+        font-weight: 300;
+        border: 1px solid $red;
+        padding: 5px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+        &:hover {
+            color: $purple;
+            background-color: $red;
+        }
+    }
+}

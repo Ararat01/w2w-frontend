@@ -1,0 +1,61 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.collectionCard {
+    overflow: hidden;
+
+    width: 320px;
+    min-height: 180px;
+    margin: 10px 30px;
+    &__name {
+        display: block;
+        color: $white;
+        padding: 10px 5px;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    &__img {
+        height: 180px;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid $orange;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        img {
+            height: 100%;
+            width: 100%;
+            transition: 0.3s;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+        }
+    }
+    &__movies {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        background-color: $orange;
+        border-radius: 5px;
+        color: $purple;
+        padding: 0 5px;
+        z-index: 1;
+    }
+
+    &__movieIcon {
+        width: 20px !important;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05);
+        }
+    }
+}

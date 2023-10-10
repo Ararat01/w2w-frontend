@@ -1,0 +1,40 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.logForm {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    h3 {
+        font-size: 30px;
+        font-weight: 400;
+        color: $orange;
+        margin-bottom: 10px;
+    }
+    span {
+        color: $gray;
+        font-weight: 300;
+        font-size: 14px;
+        padding: 5px;
+        button {
+            background-color: transparent;
+            color: $orange;
+            font-weight: 300;
+            font-size: 14px;
+            border: none;
+        }
+    }
+}

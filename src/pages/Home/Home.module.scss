@@ -1,0 +1,136 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.homePage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.home {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__aciton {
+        display: flex;
+        align-items: center;
+    }
+    h2 {
+        font-weight: 400;
+        font-size: 50px;
+    }
+    h3 {
+        font-weight: 400;
+        color: $white;
+        font-size: 30px;
+    }
+    h5 {
+        color: $gray;
+        font-weight: 300;
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin: 20px 0;
+    }
+    span {
+        font-weight: 500 !important;
+        font-size: 70px;
+        color: $orange;
+    }
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid $orange;
+    padding: 10px 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-left: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    a {
+        color: $orange;
+    }
+    &:hover {
+        box-shadow: 0 0 5px 0 $orange;
+        transform: translateY(-5px);
+    }
+    &.active {
+        background-color: $orange;
+        border: 2px solid $orange;
+        margin: 0;
+        a {
+            color: $purple;
+        }
+    }
+}
+
+.slider {
+    padding-bottom: 50px;
+    &__genre {
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+    }
+    &__genre button {
+        background: none;
+        border: none;
+        color: $white;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: 0.3s;
+        a {
+            transition: 0.3s;
+            color: $white;
+            &:hover {
+                color: $orange;
+            }
+        }
+        &.active {
+            color: $orange;
+            font-weight: 600;
+        }
+        &:hover {
+            color: $orange;
+        }
+    }
+    &__movies {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+}
+
+.slider_btn {
+    background-color: #252525;
+    border: 1px solid $orange;
+    border-radius: 5px;
+    padding: 10px;
+    color: $white;
+    z-index: 1;
+    transform: translateX(-40px);
+    transition: .3s;
+}
+
+.moviesLoader {
+    display: flex;
+    align-items: center;
+}
+
+.loaderCard {
+    width: 100px;
+    height: 180px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid $orange;
+}

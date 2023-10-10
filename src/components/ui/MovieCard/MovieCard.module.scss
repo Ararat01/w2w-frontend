@@ -1,0 +1,94 @@
+$orange: #f58c2d;
+$red: #c65257;
+$purple: #35213a;
+$blue: #4cc4d6;
+$green: #b1d595;
+$gray: #a2a2a2;
+$white: #fff;
+
+.movieCard {
+    position: relative;
+    overflow: hidden;
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid $orange;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__rating {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background-color: rgb(0, 133, 0);
+        border-radius: 5px;
+        color: #fff;
+        padding: 0 5px;
+        z-index: 1;
+    }
+    &__name {
+        display: none;
+    }
+    &.small {
+        width: 120px;
+        height: 180px;
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+        img {
+            transition: 0.3s;
+            object-fit: cover;
+            height: 100%;
+            aspect-ratio: 2/3;
+        }
+        .movieCard__name {
+            display: block;
+            color: transparent;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px 5px;
+            width: 100%;
+            transition: 0.3s;
+            border-radius: 0 0 10px 10px;
+        }
+        &:hover {
+            .movieCard__name {
+                background-color: #35213adb;
+                color: $white;
+                z-index: 1;
+            }
+        }
+    }
+    &.big {
+        width: 200px;
+        min-height: 300px;
+        margin: 10px 30px;
+        .movieCard__name {
+            display: block;
+            color: $white;
+            padding: 10px 5px;
+            width: 100%;
+        }
+        .movieCard__img {
+            height: 300px;
+        }
+        img {
+            transition: 0.3s;
+            object-fit: cover;
+            height: 300px;
+            aspect-ratio: 2/3;
+        }
+    }
+
+    
+    &:hover {
+        img {
+            transform: scale(1.05);
+        }
+    }
+}
