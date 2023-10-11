@@ -13,9 +13,11 @@ const Header = ({ open = false }) => {
     return location.pathname.startsWith(path) ? styles.active : "";
   };
   useEffect(() => {
-    setMenuOpened(open);
     setUserName(window.localStorage.getItem("userName"));
-  }, [open, auth]);
+  }, [auth]);
+  useEffect(() => {
+    setMenuOpened(open);
+  }, [open]);
 
   const logout = () => {
     if (window.confirm("Do you want logout ?")) {

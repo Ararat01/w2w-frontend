@@ -95,7 +95,7 @@ const Home = () => {
           </div>
         ) : (
           <div className={styles.moviesLoader}>
-            {[...Array(6)].map((_, i) => {
+            {[...Array(3)].map((_, i) => {
               return (
                 <div key={i} className={styles.loaderCard}>
                   <ColorRing
