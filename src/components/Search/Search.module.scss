@@ -9,14 +9,13 @@ $white: #fff;
 
 .searchForm {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     &__input {
-        background-color: transparent;
+        background-color: #a2a2a23e;
         border: none;
-        border-bottom: 1px solid $orange;
         color: $white;
-        padding: 15px;
+        padding: 5px 10px;
         min-width: 300px;
         font-size: 17px;
         &:focus {
@@ -28,7 +27,7 @@ $white: #fff;
     }
     &__btn {
         background-color: transparent;
-        border: 1px solid $orange;
+        border: 1px solid $gray;
         padding: 5px;
         margin-left: 5px;
         border-radius: 5px;
@@ -39,11 +38,49 @@ $white: #fff;
         &_close {
             opacity: 0;
             cursor: default;
-            transition: .3s;
+            transition: 0.3s;
             border: none;
             &_active {
                 cursor: pointer;
                 opacity: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 725px) {
+    .searchForm {
+        &__input {
+            min-width: 200px;
+        }
+        &__btn {
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .searchForm {
+        &__input {
+            min-width: auto;
+            max-width: 150px;
+            font-size: 13px;
+        }
+    }
+}
+@media screen and (max-width: 435px) {
+    .searchForm {
+        &__input {
+            min-width: auto;
+            max-width: 150px;
+            font-size: 12px;
+        }
+        &__btn {
+            img {
+                width: 15px;
+                height: 15px;
             }
         }
     }

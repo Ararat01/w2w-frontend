@@ -26,7 +26,7 @@ const Genres = () => {
             ? genres.map((genre, i) => {
                 return <GenreCard key={i} genre={genre} />;
               })
-            : [...Array(10)].map((_, i) => <LoadingCard key={i} />)}
+            : [...Array(10)].map((_, i) => <LoadingCard ratio={"16/9"} key={i} />)}
         </div>
       </div>
     </div>

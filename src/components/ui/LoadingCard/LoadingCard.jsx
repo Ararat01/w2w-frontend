@@ -1,10 +1,10 @@
 import { ColorRing, ThreeDots } from "react-loader-spinner";
 import styles from "./LoadingCard.module.scss";
 
-const LoadingCard = () => {
+const LoadingCard = ({ratio}) => {
   return (
-    <div className={styles.loaderDiv}>
-      <div className={styles.loaderCard}>
+    <div className={styles.loaderCard}>
+      <div className={styles.loaderCard__img} style={{"aspectRatio": ratio}}>
         <ColorRing
           visible={true}
           height="100"

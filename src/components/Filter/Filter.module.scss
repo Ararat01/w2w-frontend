@@ -21,7 +21,6 @@ $white: #fff;
         justify-content: space-between;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid $orange;
         padding: 10px 5px 10px 10px;
         color: $white;
         font-size: 18px;
@@ -54,9 +53,56 @@ $white: #fff;
     button {
         width: 200px;
         color: $gray;
-        transition: .3s;
+        border-bottom: 1px solid $gray;
+        transition: 0.3s;
         &:hover {
             color: $white;
+        }
+    }
+}
+
+@media screen and (max-width: 725px) {
+    .select {
+        min-width: 100px;
+        button {
+            padding: 10px 5px;
+            font-size: 15px;
+            span {
+            }
+        }
+    }
+
+    .options {
+        font-size: 15px;
+        align-items: stretch;
+        top: 40px;
+
+        &.active {
+        }
+        button {
+            width: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .select {
+        min-width: auto;
+        button {
+            padding: 10px 5px;
+            font-size: 13px;
+        }
+    }
+
+    .options {
+        font-size: 12px;
+        align-items: stretch;
+        top: 40px;
+
+        &.active {
+        }
+        button {
+            width: auto;
         }
     }
 }

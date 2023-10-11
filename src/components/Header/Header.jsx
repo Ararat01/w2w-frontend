@@ -72,7 +72,7 @@ const Header = ({ open = false }) => {
           {auth ? (
             <>
               <h4>{userName}</h4>
-              <button onClick={logout}>
+              <button onClick={logout} className={styles.header__user_logout}>
                 <img src="/icons/logout.svg" alt="" />
               </button>
             </>
@@ -95,20 +95,31 @@ const Header = ({ open = false }) => {
                 <h3>Welcome</h3>
                 <h4>
                   {userName}
-                  <button onClick={logout}>
+                  <button
+                    onClick={logout}
+                    className={styles.mobileHeader__user_logout}
+                  >
                     <img src="/icons/logout.svg" alt="" />
                   </button>
                 </h4>
               </>
             ) : (
               <Link to="/log">
-                <button className={styles.mobileHeader__user_login}>
+                <button onClick={() => setMenuOpened(false)} className={styles.mobileHeader__user_login}>
                   Login
                 </button>
               </Link>
             )}
           </div>
           <nav className={styles.mobileHeader__nav}>
+            <Link
+              to="/"
+              className={`${styles.mobileHeader__nav_link} ${isRouteActive(
+                "/"
+              )}`}
+            >
+              Home
+            </Link>
             <Link
               to="/movies/1?filter=latest release"
               className={`${styles.mobileHeader__nav_link} ${isRouteActive(

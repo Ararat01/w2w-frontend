@@ -39,7 +39,7 @@ $white: #fff;
         img {
             transition: 0.3s;
             object-fit: cover;
-            height: 100%;
+            width: 100%;
             aspect-ratio: 2/3;
         }
         .movieCard__name {
@@ -100,14 +100,6 @@ $white: #fff;
                 margin-right: 24px;
             }
         }
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
-            }
-        }
     }
 }
 
@@ -120,14 +112,6 @@ $white: #fff;
                 margin-right: 16px;
             }
         }
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
-            }
-        }
     }
 }
 
@@ -138,14 +122,6 @@ $white: #fff;
             height: 135px;
             &:not(:last-child) {
                 margin-right: 8px;
-            }
-        }
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
             }
         }
     }
@@ -161,11 +137,9 @@ $white: #fff;
             }
         }
         &.big {
+            width: 27%;
             .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
+                font-size: 13px;
             }
         }
     }
@@ -174,54 +148,20 @@ $white: #fff;
 @media screen and (max-width: 650px) {
     .movieCard {
         &.small {
-            width: 120px;
-            height: 180px;
-            margin: 5px !important;
-        }
-
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
-            }
+            width: 31%;
+            height: auto;
+            aspect-ratio: 2/3;
+            margin: 0 0 20px !important;
         }
     }
 }
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 475px) {
     .movieCard {
         &.small {
-            width: 100px;
-            height: 150px;
-            margin: 5px !important;
-        }
-
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
-            }
-        }
-    }
-}
-@media screen and (max-width: 430px) {
-    .movieCard {
-        &.small {
-            width: 80px;
-            height: 120px;
-            margin: 5px !important;
-        }
-
-        &.big {
-            .movieCard__name {
-            }
-            .movieCard__img {
-            }
-            img {
-            }
+            width: 46%;
+            height: auto;
+            aspect-ratio: 2/3;
+            margin: 0;
         }
     }
 }

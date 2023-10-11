@@ -8,10 +8,9 @@ $white: #fff;
 
 .collectionCard {
     overflow: hidden;
-
-    width: 320px;
-    min-height: 180px;
-    margin: 10px 30px;
+    width: 31%;
+    height: auto;
+    margin: 0 0 1vw;
     &__name {
         display: block;
         color: $white;
@@ -21,8 +20,8 @@ $white: #fff;
     }
 
     &__img {
-        height: 180px;
         width: 100%;
+        aspect-ratio: 16/9;
         overflow: hidden;
         border: 1px solid $orange;
         border-radius: 10px;
@@ -57,5 +56,19 @@ $white: #fff;
         img {
             transform: scale(1.05);
         }
+    }
+}
+@media screen and (max-width: 700px) {
+    .collectionCard {
+        width: 46%;
+        margin: 0 0 2vw;
+    }
+}
+
+
+@media screen and (max-width: 475px) {
+    .collectionCard {
+        width: 90%;
+        margin: 0 0 3vw;
     }
 }

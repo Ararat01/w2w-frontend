@@ -60,10 +60,7 @@ $white: #fff;
             font-size: 18px;
             font-weight: 300;
         }
-        button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        &_login {
             background-color: $orange;
             color: $purple;
             border: 1px solid $orange;
@@ -72,6 +69,14 @@ $white: #fff;
             font-size: 16px;
             transition: 0.3s;
             font-weight: 400;
+        }
+        &_logout {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             &:hover {
                 background-color: $orange;
                 box-shadow: 0 0 10px 0 $orange;
@@ -113,17 +118,7 @@ $white: #fff;
             padding-bottom: 20px;
             border-bottom: 1px solid $green;
         }
-        button {
-            background-color: transparent;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            img {
-                width: 25px;
-                margin-left: 5px;
-            }
+        &_login {
             background-color: $green;
             color: $purple;
             border-radius: 10px;
@@ -131,6 +126,17 @@ $white: #fff;
             font-size: 20px;
             transition: 0.3s;
             font-weight: 300;
+        }
+        &_logout {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 25px;
+                margin-left: 5px;
+            }
         }
     }
     &__nav {
@@ -145,6 +151,10 @@ $white: #fff;
             padding: 20px 0;
             border-bottom: 1px solid $green;
             margin-bottom: 10px;
+            &.active {
+                color: $white;
+                border-bottom: 1px solid $white;
+            }
         }
     }
     &_show {
@@ -172,12 +182,12 @@ $white: #fff;
         flex-direction: column;
         color: $white;
         &_img {
-            width: 80px;
+            width: 60px;
         }
 
         &_text {
-            line-height: 22px;
-            font-size: 15px;
+            line-height: 20px;
+            font-size: 13px;
         }
     }
     &__menu {
@@ -265,8 +275,37 @@ $white: #fff;
         display: flex;
     }
 }
+@media screen and (max-width: 500px) {
+    .mobileHeader {
+        padding: 25px 30px;
+    }
+}
+
 @media screen and (max-width: 475px) {
     .mobileHeader {
-        padding: 25px 40px;
+        &__logo {
+            &_img {
+                width: 50px;
+            }
+
+            &_text {
+                line-height: 17px;
+                font-size: 12px;
+            }
+        }
+        &__menu {
+            &_burger {
+                width: 45px;
+                height: 45px;
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .mobileHeader {
+        padding: 25px 20px;
     }
 }

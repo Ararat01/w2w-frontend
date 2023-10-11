@@ -7,10 +7,10 @@ $gray: #a2a2a2;
 $white: #fff;
 
 
-
 .genres {
+    padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 }

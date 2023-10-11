@@ -82,6 +82,33 @@ const Home = () => {
             <Link to={"/genres"}>More</Link>
           </button>
         </div>
+        <div className={styles.slider__genre_small}>
+          {[...genresArr].slice(0, 4).map((genre, i) => {
+            return (
+              <button
+                className={
+                  genre.genreName === selectedGenre ? styles.active : ""
+                }
+                key={i}
+                onClick={() => {
+                  setGenre(genre.genreName);
+                  setSlide(0);
+                }}
+              >
+                {genre.genreName}
+              </button>
+            );
+          })}
+          <button>
+            <Link to={"/genres"}>
+              <div className={styles.dots}>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </Link>
+          </button>
+        </div>
         {moviesArr.length ? (
           <div className={styles.slider_block}>
             <div className={styles.slider__movies}>

@@ -1,7 +1,7 @@
 const Arrow = ({ color, rotate, size = 25 }) => {
   return (
     <svg
-      style={{ transform: `rotateZ(${rotate}deg)` }}
+      style={{ transform: `rotateZ(${rotate}deg)`, transition: ".3s" }}
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}

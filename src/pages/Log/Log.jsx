@@ -15,7 +15,7 @@ const Log = () => {
     if (checkAuth()) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="page">

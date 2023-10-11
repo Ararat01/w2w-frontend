@@ -10,7 +10,7 @@ $white: #fff;
 .movies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
 }
 

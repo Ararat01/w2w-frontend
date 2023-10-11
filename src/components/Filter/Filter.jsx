@@ -13,7 +13,7 @@ const Filter = ({ filter, filters, onChange }) => {
     <div className={styles.select}>
       <button className={""} onClick={openSelect}>
         <span>{filter}</span>
-        <Arrow size={15} rotate={90} color={"#fff"} />
+        <Arrow size={15} rotate={select ? 270 : 90} color={"#fff"} />
       </button>
       <div className={`${styles.options} ${select ? styles.active : ""}`}>
         {[...filters].map((filt, i) => {

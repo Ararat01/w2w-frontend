@@ -7,8 +7,9 @@ $gray: #a2a2a2;
 $white: #fff;
 
 .collections {
+    padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 }
