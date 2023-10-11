@@ -73,7 +73,7 @@ $white: #fff;
 }
 
 .slider {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     position: relative;
     &:last-child {
         margin: 0;
@@ -111,16 +111,19 @@ $white: #fff;
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
     &_block {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         position: relative;
+        justify-content: space-between;
     }
     &_btn {
         background-color: #252525;
         position: absolute;
-        right: -30px;
+        right: -20px;
         border: 1px solid $orange;
         border-radius: 5px;
         padding: 10px;
@@ -252,8 +255,18 @@ $white: #fff;
     }
 }
 
-
 .moviesLoader {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.loaderCard {
+    width: 12%;
+    border: 1px solid $orange;
+    aspect-ratio: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }

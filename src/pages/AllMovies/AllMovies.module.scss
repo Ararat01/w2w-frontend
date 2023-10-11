@@ -7,10 +7,11 @@ $gray: #a2a2a2;
 $white: #fff;
 
 
+
 .movies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
 }
 
@@ -18,7 +19,8 @@ $white: #fff;
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
 }

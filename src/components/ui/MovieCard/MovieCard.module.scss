@@ -34,11 +34,8 @@ $white: #fff;
         display: none;
     }
     &.small {
-        width: 120px;
-        height: 180px;
-        &:not(:last-child) {
-            margin-right: 24px;
-        }
+        width: 12%;
+        aspect-ratio: 2/3;
         img {
             transition: 0.3s;
             object-fit: cover;
@@ -65,22 +62,24 @@ $white: #fff;
         }
     }
     &.big {
-        width: 200px;
-        min-height: 300px;
-        margin: 10px 30px;
+        width: 21%;
+        aspect-ratio: 2/3;
+        margin: 10px 0px;
+        overflow: inherit;
         .movieCard__name {
+            font-size: 15px;
             display: block;
             color: $white;
             padding: 10px 5px;
             width: 100%;
         }
         .movieCard__img {
-            height: 300px;
+            width: 100%;
         }
         img {
             transition: 0.3s;
             object-fit: cover;
-            height: 300px;
+            width: 100%;
             aspect-ratio: 2/3;
         }
     }
@@ -97,6 +96,9 @@ $white: #fff;
         &.small {
             width: 110px;
             height: 165px;
+            &:not(:last-child) {
+                margin-right: 24px;
+            }
         }
         &.big {
             .movieCard__name {

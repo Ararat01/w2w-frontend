@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import MovieCard from "../../components/ui/MovieCard/MovieCard";
 import Pagination from "../../components/Pagination/Pagination";
@@ -14,12 +14,15 @@ import Filter from "../../components/Filter/Filter";
 const AllMovies = () => {
   const navigate = useNavigate();
   let { page } = useParams();
+  let [params, setParams] = useSearchParams()
+  
   const [change, setChange] = useState(1);
   const filtersDb = {
     "latest release": "Year",
     "IMDb Rating": "imdbRating",
     "W2w Rating": "w2wRating",
     Metascore: "Metascore",
+    "Tomatoes Rating": "tomatRating",
   };
 
   let [moviesArr, setMovies] = useState([]);
@@ -31,23 +34,25 @@ const AllMovies = () => {
     "IMDb Rating",
     "W2w Rating",
     "Metascore",
+    "Tomatoes Rating",
   ]);
-  let [filter, setFilter] = useState("latest release");
+  let [filter, setFilter] = useState(params.get('filter') || "latest release");
   useEffect(() => {
+    setMovies([]);
     setNotFound(false);
     setPageShow(true);
-    setMovies([]);
 
     axios
       .post(`${API_URL}/getMovies?page=${page}`, { filter: filtersDb[filter] })
       .then((res) => {
         setMovies(res.data.movies);
-        setMoviesLen(Math.ceil(res.data.fullLength / 20));
+        setMoviesLen(Math.ceil(res.data.fullLength / 24));
       })
       .catch((err) => console.log(err));
   }, [page, filter, change]);
 
   const filterChange = (filt) => {
+    setParams({filter: filt})
     setFilter(filt);
   };
 
@@ -61,12 +66,12 @@ const AllMovies = () => {
   };
 
   const searchRes = (movies) => {
+    setPageShow(false);
     if (movies.length) {
-      setPageShow(false);
+      setMovies([]);
       setNotFound(false);
       setMovies(movies);
     } else {
-      setPageShow(false);
       setNotFound(true);
     }
   };
@@ -77,7 +82,7 @@ const AllMovies = () => {
   };
 
   return (
-    <div>
+    <div className="page">
       <Header />
 
       <div className="container">

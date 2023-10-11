@@ -12,7 +12,7 @@ import API_URL from "../../config";
 const Home = () => {
   const [genresArr, setGenresArr] = useState([]);
   const [moviesArr, setMovies] = useState([]);
-  const [selectedGenre, setGenre] = useState("Adventure");
+  const [selectedGenre, setGenre] = useState("Action");
   const [slide, setSlide] = useState(0);
 
   const slider = () => {
@@ -42,7 +42,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={styles.homePage}>
+    <div className={`${styles.homePage} page`}>
       <Header />
       <section className={`${styles.home} "container"`}>
         <h2>
@@ -55,7 +55,7 @@ const Home = () => {
             <Link to={"/log"}>Join Now</Link>
           </button>
           <button className={styles.home__action_btn}>
-            <Link to={"/movies/1"}>Show Movies</Link>
+            <Link to={"/movies/1?filter=latest release"}>Show Movies</Link>
           </button>
         </div>
       </section>
@@ -95,7 +95,7 @@ const Home = () => {
           </div>
         ) : (
           <div className={styles.moviesLoader}>
-            {[...Array(3)].map((_, i) => {
+            {[...Array(6)].map((_, i) => {
               return (
                 <div key={i} className={styles.loaderCard}>
                   <ColorRing

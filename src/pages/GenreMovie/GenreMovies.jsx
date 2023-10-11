@@ -21,7 +21,7 @@ const GenreMovies = () => {
   }, [genreName]);
 
   return (
-    <div>
+    <div className="page">
       <Header />
       <div className="container">
         <div className={styles.movies}>

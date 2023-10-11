@@ -31,7 +31,7 @@ const Favorite = () => {
   }, [token, navigate]);
 
   return (
-    <div>
+    <div className="page">
       <Header />
 
       <div className="container">

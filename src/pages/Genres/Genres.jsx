@@ -18,7 +18,7 @@ const Genres = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <>
+    <div className="page">
       <Header />
       <div className="container">
         <div className={styles.genres}>
@@ -29,7 +29,7 @@ const Genres = () => {
             : [...Array(10)].map((_, i) => <LoadingCard key={i} />)}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

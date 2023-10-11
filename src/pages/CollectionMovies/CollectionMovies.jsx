@@ -21,7 +21,7 @@ const CollectionMovies = () => {
   }, [collectionId]);
 
   return (
-    <div>
+    <div className="page">
       <Header />
       <div className="container">
         <div className={styles.movies}>

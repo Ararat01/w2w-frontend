@@ -40,7 +40,7 @@ const Header = ({ open = false }) => {
         </Link>
         <nav className={styles.header__nav}>
           <Link
-            to="/movies/1"
+            to="/movies/1?filter=latest release"
             className={`${styles.header__nav_link} ${isRouteActive("/movies")}`}
           >
             Movies
@@ -110,7 +110,7 @@ const Header = ({ open = false }) => {
           </div>
           <nav className={styles.mobileHeader__nav}>
             <Link
-              to="/movies/1"
+              to="/movies/1?filter=latest release"
               className={`${styles.mobileHeader__nav_link} ${isRouteActive(
                 "/movies"
               )}`}

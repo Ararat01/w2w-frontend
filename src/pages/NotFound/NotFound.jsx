@@ -3,7 +3,7 @@ import styles from "./NotFound.module.scss";
 
 const NotFound = () => {
   return (
-    <>
+    <div className="page">
       <div className="container">
         <div className={styles.page}>
           <img className={styles.image} src="/404.png" alt="" />
@@ -17,7 +17,7 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

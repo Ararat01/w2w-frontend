@@ -18,7 +18,7 @@ const Log = () => {
   }, []);
 
   return (
-    <>
+    <div className="page">
       <Header />
       <div className={styles.logForm}>
         <h3>{join}</h3>
@@ -38,7 +38,7 @@ const Log = () => {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

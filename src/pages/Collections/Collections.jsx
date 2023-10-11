@@ -18,7 +18,7 @@ const Collections = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <>
+    <div className="page">
       <Header />
       <div className="container">
         <div className={styles.collections}>
@@ -29,7 +29,7 @@ const Collections = () => {
             : [...Array(8)].map((_, i) => <LoadingCard key={i} />)}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
