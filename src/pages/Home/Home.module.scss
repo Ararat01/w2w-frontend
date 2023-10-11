@@ -18,9 +18,36 @@ $white: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__aciton {
+
+    &__action {
         display: flex;
         align-items: center;
+        &_btn {
+            background-color: transparent;
+            border: 2px solid $orange;
+            padding: 10px 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 20px;
+            margin-left: 10px;
+            border-radius: 10px;
+            transition: 0.3s;
+            a {
+                color: $orange;
+            }
+            &:hover {
+                box-shadow: 0 0 5px 0 $orange;
+                transform: translateY(-5px);
+            }
+            &.active {
+                background-color: $orange;
+                border: 2px solid $orange;
+                margin: 0;
+                a {
+                    color: $purple;
+                }
+            }
+        }
     }
     h2 {
         font-weight: 400;
@@ -45,38 +72,15 @@ $white: #fff;
     }
 }
 
-.btn {
-    background-color: transparent;
-    border: 2px solid $orange;
-    padding: 10px 25px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 20px;
-    margin-left: 10px;
-    border-radius: 10px;
-    transition: 0.3s;
-    a {
-        color: $orange;
-    }
-    &:hover {
-        box-shadow: 0 0 5px 0 $orange;
-        transform: translateY(-5px);
-    }
-    &.active {
-        background-color: $orange;
-        border: 2px solid $orange;
-        margin: 0;
-        a {
-            color: $purple;
-        }
-    }
-}
-
 .slider {
     padding-bottom: 50px;
+    position: relative;
+    &:last-child {
+        margin: 0;
+    }
     &__genre {
         margin: 15px 0;
-        display: flex;
+        display: inline-flex;
         align-items: center;
     }
     &__genre button {
@@ -86,6 +90,9 @@ $white: #fff;
         margin-right: 15px;
         font-size: 20px;
         transition: 0.3s;
+        &:last-child {
+            margin: 0;
+        }
         a {
             transition: 0.3s;
             color: $white;
@@ -105,31 +112,141 @@ $white: #fff;
         flex-wrap: nowrap;
         align-items: center;
     }
+    &_block {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+    }
+    &_btn {
+        background-color: #252525;
+        position: absolute;
+        right: -30px;
+        border: 1px solid $orange;
+        border-radius: 5px;
+        padding: 10px;
+        color: $white;
+        z-index: 1;
+        transition: 0.3s;
+    }
 }
 
-.slider_btn {
-    background-color: #252525;
-    border: 1px solid $orange;
-    border-radius: 5px;
-    padding: 10px;
-    color: $white;
-    z-index: 1;
-    transform: translateX(-40px);
-    transition: .3s;
+@media screen and (max-width: 760px) {
+    .home {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        &__action {
+            &_btn {
+                padding: 8px 20px;
+                font-weight: 600;
+                letter-spacing: 0px;
+                font-size: 18px;
+                margin-left: 5px;
+            }
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h3 {
+            font-size: 27px;
+        }
+        h5 {
+            font-size: 20px;
+            margin: 15px 0;
+            letter-spacing: 1px;
+        }
+        span {
+            font-size: 60px;
+        }
+    }
+    .slider {
+        &__genre {
+        }
+        &__genre button {
+            margin-right: 12px;
+            font-size: 17px;
+        }
+        &__movies {
+        }
+        &_block {
+        }
+        &_btn {
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .home {
+        &__action {
+            &_btn {
+                padding: 8px 16px;
+                font-weight: 600;
+                letter-spacing: 0px;
+                font-size: 16px;
+                margin-left: 8px;
+            }
+        }
+        h2 {
+            font-size: 30px;
+        }
+        h3 {
+            font-size: 20px;
+        }
+        h5 {
+            font-size: 18px;
+            letter-spacing: 0px;
+        }
+        span {
+            font-size: 45px;
+        }
+    }
+    .slider {
+        padding: 25px 60px;
+        &__genre button {
+            display: none;
+        }
+        &__movies {
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        &_btn {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .home {
+        h2 {
+            font-size: 23px;
+        }
+        h3 {
+            font-size: 15px;
+        }
+        h5 {
+            font-size: 13px;
+            letter-spacing: 0px;
+            margin: 5px 0 10px;
+        }
+        span {
+            font-size: 27px;
+        }
+    }
+    .slider {
+        padding: 25px 40px;
+        &__genre button {
+            display: none;
+        }
+        &__movies {
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        &_btn {
+            display: none;
+        }
+    }
 }
 
 .moviesLoader {
     display: flex;
     align-items: center;
-}
-
-.loaderCard {
-    width: 100px;
-    height: 180px;
-    margin-right: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: 1px solid $orange;
 }

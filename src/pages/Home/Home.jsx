@@ -25,9 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `${API_URL}/moviesByGenre?genre=${selectedGenre}&count=10&sort=-1`
-      )
+      .get(`${API_URL}/moviesByGenre?genre=${selectedGenre}&count=10&sort=-1`)
       .then((res) => {
         setMovies(res.data);
       })
@@ -45,7 +43,6 @@ const Home = () => {
 
   return (
     <div className={styles.homePage}>
-      
       <Header />
       <section className={`${styles.home} "container"`}>
         <h2>
@@ -54,8 +51,12 @@ const Home = () => {
         <h3>rescue your evenings from boredom!</h3>
         <h5>Your compass to the cinematic world!</h5>
         <div className={styles.home__action}>
-          <button className={`${styles.btn} ${styles.active}`}><Link to={"/log"}>Join Now</Link></button>
-          <button className={styles.btn}><Link to={"/movies/1"}>Show Movies</Link></button>
+          <button className={`${styles.home__action_btn} ${styles.active}`}>
+            <Link to={"/log"}>Join Now</Link>
+          </button>
+          <button className={styles.home__action_btn}>
+            <Link to={"/movies/1"}>Show Movies</Link>
+          </button>
         </div>
       </section>
 
@@ -77,15 +78,17 @@ const Home = () => {
               </button>
             );
           })}
-          <button><Link to={'/genres'}>More</Link></button>
+          <button>
+            <Link to={"/genres"}>More</Link>
+          </button>
         </div>
         {moviesArr.length ? (
-          <div className={styles.slider__movies}>
-            {[...moviesArr].slice(slide, slide + 6).map((movie, i) => {
-              return (
-                <MovieCard key={i} movie={movie} css={'small'} />
-              );
-            })}
+          <div className={styles.slider_block}>
+            <div className={styles.slider__movies}>
+              {[...moviesArr].slice(slide, slide + 6).map((movie, i) => {
+                return <MovieCard key={i} movie={movie} css={"small"} />;
+              })}
+            </div>
             <button className={styles.slider_btn} onClick={slider}>
               <Arrow color={"#fff"} />
             </button>

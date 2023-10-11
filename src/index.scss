@@ -13,3 +13,15 @@
 button {
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 650px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .container {
+    padding: 0 40px;
+  }
+}

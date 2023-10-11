@@ -9,8 +9,8 @@ import API_URL from "../../config";
 import LoadingCard from "../../components/ui/LoadingCard/LoadingCard";
 
 const CollectionMovies = () => {
-  const {collectionId} = useParams()
-  const [moviesArr, setMovies] = useState([])
+  const { collectionId } = useParams();
+  const [moviesArr, setMovies] = useState([]);
   useEffect(() => {
     axios
       .get(`${API_URL}/collections/${collectionId}`)
@@ -29,7 +29,7 @@ const CollectionMovies = () => {
             ? [...moviesArr].map((movie, i) => {
                 return <MovieCard key={i} movie={movie} css={"big"} />;
               })
-            : [...Array(10)].map((_, i) => <LoadingCard key={i}/>)}
+            : [...Array(10)].map((_, i) => <LoadingCard key={i} />)}
         </div>
       </div>
     </div>
