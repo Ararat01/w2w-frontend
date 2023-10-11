@@ -131,9 +131,6 @@ $white: #fff;
 }
 
 @media screen and (max-width: 760px) {
-    .homePage {
-        height: auto;
-    }
     .home {
         padding-top: 30px;
         padding-bottom: 30px;
@@ -218,6 +215,9 @@ $white: #fff;
 }
 
 @media screen and (max-width: 475px) {
+    .homePage {
+        height: auto;
+    }
     .home {
         h2 {
             font-size: 23px;

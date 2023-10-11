@@ -8,7 +8,7 @@ const Header = ({ open = false }) => {
   const navigate = useNavigate();
   const auth = checkAuth();
   const [userName, setUserName] = useState("");
-  const [menuOpened, setMenuOpened] = useState(true);
+  const [menuOpened, setMenuOpened] = useState(false);
   const isRouteActive = (path) => {
     return location.pathname.startsWith(path) ? styles.active : "";
   };
