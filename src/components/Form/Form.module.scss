@@ -55,6 +55,7 @@ $white: #fff;
     align-items: flex-end;
     width: 100%;
     textarea {
+        resize: vertical;
         width: 100%;
         max-width: 600px;
         min-height: 100px;

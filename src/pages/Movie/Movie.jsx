@@ -80,170 +80,215 @@ const Movie = () => {
       <Header />
       {movie ? (
         <>
-          <div className={`${styles.top} container`}>
-            <div className={styles.title}>
-              <h2>{movie.Title}</h2>
-              <p>
-                <b>{movie.Year}</b>
-                <b>{movie.Rated}</b>
-                <b>{movie.Runtime}</b>
-              </p>
-            </div>
-            <div className={styles.rating}>
-              <div>
-                <img src="/icons/imdb.png" alt="" />
-                <h3>{`${movie.imdbRating}`}</h3>
+          <div className={styles.movie_big}>
+            <div className={`${styles.top} container`}>
+              <div className={styles.title}>
+                <h2>{movie.Title}</h2>
+                <p>
+                  <b>{movie.Year}</b>
+                  <b>{movie.Rated}</b>
+                  <b>{movie.Runtime}</b>
+                </p>
               </div>
-              <div>
-                <img src="/icons/tomat.png" alt="" />
-                <h3>{movie.tomatRating}</h3>
-              </div>
-              <div>
-                <img src="/w2w.png" alt="" />
-                <h3>{`${parseFloat(movie.w2wRating).toFixed(1)}`}</h3>
-              </div>
-            </div>
-          </div>
-          <div className={`${styles.pic} container`}>
-            <img src={movie.Poster} alt="" />
-            <div></div>
-            <iframe
-              src={movie.Trailer}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className={`${styles.about} container`}>
-            <div className={styles.genre}>
-              {[...movie.Genre].map((genre, i) => {
-                return <span key={i}>{genre}</span>;
-              })}
-            </div>
-            <p>{movie.Plot}</p>
-            <div className={styles.fullInfo}>
-              <div className={`${styles.info} ${styles.info_left}`}>
+              <div className={styles.rating}>
                 <div>
-                  <span>
-                    {movie.Director.split(", ").length - 1
-                      ? "Directors"
-                      : "Director"}
-                    :
-                  </span>
-                  {[...movie.Director.split(", ")].map((name, i) => {
-                    return (
-                      <a key={i} href={`https://en.wikipedia.org/wiki/${name}`}>
-                        {`${
-                          name +
-                          (i === movie.Director.split(", ").length - 1
-                            ? ""
-                            : ", ")
-                        }`}
-                      </a>
-                    );
-                  })}
+                  <img src="/icons/imdb.png" alt="" />
+                  <h3>{`${movie.imdbRating}`}</h3>
+                </div>
+                <div className={styles.rating__big}>
+                  <img src="/icons/tomat.png" alt="" />
+                  <h3>{movie.tomatRating}</h3>
                 </div>
                 <div>
-                  <span>{movie.Writer.length - 1 ? "Writers" : "Writer"}:</span>
-                  {[...movie.Writer].map((name, i) => {
-                    return (
-                      <a key={i} href={`https://en.wikipedia.org/wiki/${name}`}>
-                        {`${
-                          name + (i === movie.Writer.length - 1 ? "" : ", ")
-                        }`}
-                      </a>
-                    );
-                  })}
-                </div>
-                <div>
-                  <span>{movie.Actors.length - 1 ? "Stars" : "Star"}:</span>
-                  {[...movie.Actors].map((name, i) => {
-                    return (
-                      <a key={i} href={`https://en.wikipedia.org/wiki/${name}`}>
-                        {`${
-                          name + (i === movie.Actors.length - 1 ? "" : ", ")
-                        }`}
-                      </a>
-                    );
-                  })}
-                </div>
-                <div>
-                  <span>Duration:</span> {movie.Runtime}
-                </div>
-
-                <div>
-                  <span>For more information:</span>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={`https://www.imdb.com/title/${movie.imdbID}`}
-                    style={{ height: "20px" }}
-                  >
-                    <img height="20px" src="/icons/imdb.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className={`${styles.info} ${styles.info_right}`}>
-                <div>
-                  <span>Release Date:</span> {movie.Released}
-                </div>
-                <div>
-                  <span>IMDb rating:</span> {movie.imdbRating}/10 (
-                  {movie.imdbVotes} votes)
-                </div>
-                <div>
-                  <span>Rotten Tomatoes:</span> {movie.tomatRating}
-                </div>
-                <div>
-                  <Rating
-                    onClick={onPointerClick}
-                    size={25}
-                    iconsCount={10}
-                    initialValue={Math.round(movie.w2wRating)}
-                  />
-                  {movie.w2wRating} (1,256 votes)
-                </div>
-                <div>
-                  {!isFavorite ? (
-                    <button onClick={() => addToFav(id)}>
-                      Add to Favorite
-                      <img height="20px" src="/icons/fav.svg" alt="" />
-                    </button>
-                  ) : (
-                    <button
-                      className={styles.remove}
-                      onClick={() => delFromFav(id)}
-                    >
-                      Remove from Favorite
-                      <img height="20px" src="/icons/fav.svg" alt="" />
-                    </button>
-                  )}
+                  <img src="/w2w.png" alt="" />
+                  <h3>{`${parseFloat(movie.w2wRating).toFixed(1)}`}</h3>
                 </div>
               </div>
             </div>
-            <div className={styles.reviewBlock}>
-              <div className={styles.review}>
-                <h3>{movie.Reviews.length ? "Reviews" : "No reviews yet"}</h3>
-                {[...movie.Reviews].reverse().map((review, i) => {
-                  return (
-                    <div className={styles.review__el} key={i}>
-                      <h3>
-                        <span>
-                          <img src="/icons/user.svg" alt="" />
-                        </span>
-                        {review.user.fullName}
-                      </h3>
-                      <p>{review.body}</p>
-                    </div>
-                  );
+            <div className={`${styles.pic} container`}>
+              <img src={movie.Poster} alt="" />
+              <div></div>
+              <iframe
+                src={movie.Trailer}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className={`${styles.about} container`}>
+              <div className={styles.genre}>
+                {[...movie.Genre].map((genre, i) => {
+                  return <span key={i}>{genre}</span>;
                 })}
               </div>
-              <div className={styles.reviewForm}>
-                <ReviewForm
-                  movieId={id}
-                  onChange={() => setChange(change + 1)}
-                />
+              <p>{movie.Plot}</p>
+              <div className={styles.fullInfo}>
+                <div className={`${styles.info} ${styles.info_left}`}>
+                  <div>
+                    <span>
+                      {movie.Director.split(", ").length - 1
+                        ? "Directors"
+                        : "Director"}
+                      :
+                    </span>
+                    {[...movie.Director.split(", ")].map((name, i) => {
+                      return (
+                        <a
+                          key={i}
+                          target="_blank"
+                          href={`https://en.wikipedia.org/wiki/${name}`}
+                        >
+                          {`${
+                            name +
+                            (i === movie.Director.split(", ").length - 1
+                              ? ""
+                              : ", ")
+                          }`}
+                        </a>
+                      );
+                    })}
+                  </div>
+                  <div>
+                    <span>
+                      {movie.Writer.length - 1 ? "Writers" : "Writer"}:
+                    </span>
+                    {[...movie.Writer].map((name, i) => {
+                      return (
+                        <a
+                          key={i}
+                          target="_blank"
+                          href={`https://en.wikipedia.org/wiki/${name}`}
+                        >
+                          {`${
+                            name + (i === movie.Writer.length - 1 ? "" : ", ")
+                          }`}
+                        </a>
+                      );
+                    })}
+                  </div>
+                  <div>
+                    <span>{movie.Actors.length - 1 ? "Stars" : "Star"}:</span>
+                    {[...movie.Actors].map((name, i) => {
+                      return (
+                        <a
+                          key={i}
+                          target="_blank"
+                          href={`https://en.wikipedia.org/wiki/${name}`}
+                        >
+                          {`${
+                            name + (i === movie.Actors.length - 1 ? "" : ", ")
+                          }`}
+                        </a>
+                      );
+                    })}
+                  </div>
+                  <div className={styles.big}>
+                    <span>Duration:</span> {movie.Runtime}
+                  </div>
+
+                  <div>
+                    <span>For more information:</span>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={`https://www.imdb.com/title/${movie.imdbID}`}
+                      style={{ height: "20px" }}
+                    >
+                      <img height="20px" src="/icons/imdb.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+                <div className={`${styles.info} ${styles.info_right}`}>
+                  <div>
+                    <span>Release Date:</span> {movie.Released}
+                  </div>
+                  <div >
+                    <span>IMDb rating:</span> {movie.imdbRating}/10 (
+                    {(
+                      parseInt(movie.imdbVotes.replace(/,/g, "")) / 1000
+                    ).toFixed(0)}
+                    k votes)
+                  </div>
+                  <div >
+                    <span>Rotten Tomatoes:</span> {movie.tomatRating}
+                  </div>
+                  <div className={styles.big}>
+                    <Rating
+                      onClick={onPointerClick}
+                      size={22}
+                      iconsCount={5}
+                      initialValue={Math.round(movie.w2wRating) / 2}
+                    />
+                    {movie.w2wRating}
+                  </div>
+                  <div>
+                    {!isFavorite ? (
+                      <button onClick={() => addToFav(id)}>
+                        Add to Favorite
+                        <img height="20px" src="/icons/fav.svg" alt="" />
+                      </button>
+                    ) : (
+                      <button
+                        className={styles.remove}
+                        onClick={() => delFromFav(id)}
+                      >
+                        Remove from Favorite
+                        <img height="20px" src="/icons/fav.svg" alt="" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.review}>
+                <div className={styles.review__block}>
+                  <h3>{movie.Reviews.length ? "Reviews" : "No reviews yet"}</h3>
+                  {[...movie.Reviews].reverse().map((review, i) => {
+                    return (
+                      <div className={styles.review__el} key={i}>
+                        <h3>
+                          <span>
+                            <img src="/icons/user.svg" alt="" />
+                          </span>
+                          {review.user.fullName}
+                        </h3>
+                        <p>{review.body}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className={styles.review__form}>
+                  <ReviewForm
+                    movieId={id}
+                    onChange={() => setChange(change + 1)}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.movie_small}>
+            <div className={`${styles.top} container`}>
+              <div className={styles.title}>
+                <h2>{movie.Title}</h2>
+                <p>
+                  <b>{movie.Year}</b>
+                  <b>{movie.Rated}</b>
+                  <b>{movie.Runtime}</b>
+                </p>
+              </div>
+              <div className={styles.rating}>
+                <div>
+                  <img src="/icons/imdb.png" alt="" />
+                  <h3>{`${movie.imdbRating}`}</h3>
+                </div>
+                <div>
+                  <img src="/icons/tomat.png" alt="" />
+                  <h3>{movie.tomatRating}</h3>
+                </div>
+                <div>
+                  <img src="/w2w.png" alt="" />
+                  <h3>{`${parseFloat(movie.w2wRating).toFixed(1)}`}</h3>
+                </div>
               </div>
             </div>
           </div>

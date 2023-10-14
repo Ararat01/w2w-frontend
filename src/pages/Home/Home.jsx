@@ -24,6 +24,8 @@ const Home = () => {
   };
 
   useEffect(() => {
+    setMovies([]);
+
     axios
       .get(`${API_URL}/moviesByGenre?genre=${selectedGenre}&count=10&sort=-1`)
       .then((res) => {

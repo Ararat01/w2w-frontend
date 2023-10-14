@@ -105,19 +105,17 @@ const Header = ({ open = false }) => {
               </>
             ) : (
               <Link to="/log">
-                <button onClick={() => setMenuOpened(false)} className={styles.mobileHeader__user_login}>
+                <button
+                  onClick={() => setMenuOpened(false)}
+                  className={styles.mobileHeader__user_login}
+                >
                   Login
                 </button>
               </Link>
             )}
           </div>
           <nav className={styles.mobileHeader__nav}>
-            <Link
-              to="/"
-              className={`${styles.mobileHeader__nav_link} ${isRouteActive(
-                "/"
-              )}`}
-            >
+            <Link to="/" className={styles.mobileHeader__nav_link}>
               Home
             </Link>
             <Link

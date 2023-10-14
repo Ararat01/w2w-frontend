@@ -21,7 +21,7 @@ $white: #fff;
         justify-content: space-between;
         background-color: transparent;
         border: none;
-        padding: 10px 5px 10px 10px;
+        padding: 0px 10px;
         color: $white;
         font-size: 18px;
         span {
@@ -39,7 +39,7 @@ $white: #fff;
     background-color: #292929;
     height: 0;
     right: 0;
-    top: 50px;
+    top: 30px;
     z-index: -1;
     transition: opacity 0.3s;
     opacity: 0;
@@ -52,6 +52,7 @@ $white: #fff;
     }
     button {
         width: 200px;
+        padding: 10px;
         color: $gray;
         border-bottom: 1px solid $gray;
         transition: 0.3s;
@@ -65,20 +66,14 @@ $white: #fff;
     .select {
         min-width: 100px;
         button {
-            padding: 10px 5px;
             font-size: 15px;
-            span {
-            }
         }
     }
 
     .options {
         font-size: 15px;
         align-items: stretch;
-        top: 40px;
-
-        &.active {
-        }
+        top: 30px;
         button {
             width: auto;
         }
@@ -87,9 +82,9 @@ $white: #fff;
 
 @media screen and (max-width: 435px) {
     .select {
+        padding-top: 10px;
         min-width: auto;
         button {
-            padding: 10px 5px;
             font-size: 13px;
         }
     }
@@ -97,12 +92,5 @@ $white: #fff;
     .options {
         font-size: 12px;
         align-items: stretch;
-        top: 40px;
-
-        &.active {
-        }
-        button {
-            width: auto;
-        }
     }
 }

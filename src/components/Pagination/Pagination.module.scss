@@ -8,7 +8,7 @@ $gray: #a2a2a2;
 $white: #fff;
 
 .pagination {
-    padding: 10px;
+    padding: 10px 0;
     margin: 25px auto;
     display: flex;
     align-items: center;
@@ -24,21 +24,53 @@ $white: #fff;
         border-radius: 5px;
         transition: 0.3s;
         background-color: transparent;
-        margin: 0 10px;
         opacity: 0;
         &:not(:disabled) {
             opacity: 1;
-            &:hover {
-                &:first-child {
+            &:first-child {
+                margin-right: 10px;
+                &:hover {
                     transform: translateX(-3px);
                 }
-                &:last-child {
+            }
+            &:last-child {
+                margin-left: 10px;
+                &:hover {
                     transform: translateX(3px);
                 }
             }
         }
     }
     &__pages {
+        display: flex;
+        align-items: center;
+        &_small {
+            display: none;
+            align-items: center;
+            button {
+                background-color: transparent;
+                color: $orange;
+                border: 2px solid $orange;
+                border-radius: 5px;
+                padding: 10px;
+                min-width: 20px;
+                min-height: 20px;
+                font-weight: 500;
+                font-size: 12px;
+                transition: 0.3s;
+                &.active {
+                    background-color: $orange;
+                    color: $purple;
+                }
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+                &:hover {
+                    box-shadow: 0px 0px 5px 0px $orange;
+                    transform: translateY(-3px);
+                }
+            }
+        }
         button {
             background-color: transparent;
             color: $orange;
@@ -60,6 +92,79 @@ $white: #fff;
             &:hover {
                 box-shadow: 0px 0px 5px 0px $orange;
                 transform: translateY(-3px);
+            }
+        }
+        &_start {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            .dots {
+                margin: 0;
+            }
+        }
+        &_end {
+            display: flex;
+            align-items: center;
+            .dots {
+                margin-right: 10px;
+            }
+        }
+    }
+    .dots {
+        display: flex;
+        align-items: center;
+        div {
+            width: 4px;
+            height: 4px;
+            background-color: $orange;
+            border-radius: 50%;
+            margin: 0 2px;
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .pagination {
+        &__pages {
+            display: none;
+            &_small {
+                display: flex;
+            }
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .pagination {
+        &__arrow {
+            padding: 5px;
+            &:not(:disabled) {
+                &:first-child {
+                    margin-right: 6px;
+                }   
+                &:last-child {
+                    margin-left: 6px;
+                }
+            }
+        }
+        &__pages {
+            &_small {
+                button {
+                    padding: 5px;
+                    &:not(:last-child) {
+                        margin-right: 6px;
+                    }
+                }
+            }
+            &_start {
+                margin-right: 6px;
+                .dots {
+                    margin-right: 0px;
+                }
+            }
+            &_end {
+                .dots {
+                    margin-right: 6px;
+                }
             }
         }
     }

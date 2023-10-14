@@ -29,7 +29,7 @@ const GenreMovies = () => {
             ? [...moviesArr].map((movie, i) => {
                 return <MovieCard key={i} movie={movie} css={"big"} />;
               })
-            : [...Array(10)].map((_, i) => <LoadingCard key={i} />)}
+            : [...Array(12)].map((_, i) => <LoadingCard key={i} />)}
         </div>
       </div>
     </div>

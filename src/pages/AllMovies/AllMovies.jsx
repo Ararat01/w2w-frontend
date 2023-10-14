@@ -14,8 +14,8 @@ import Filter from "../../components/Filter/Filter";
 const AllMovies = () => {
   const navigate = useNavigate();
   let { page } = useParams();
-  let [params, setParams] = useSearchParams()
-  
+  let [params, setParams] = useSearchParams();
+
   const [change, setChange] = useState(1);
   const filtersDb = {
     "latest release": "Year",
@@ -36,7 +36,7 @@ const AllMovies = () => {
     "Metascore",
     "Tomatoes Rating",
   ]);
-  let [filter, setFilter] = useState(params.get('filter') || "latest release");
+  let [filter, setFilter] = useState(params.get("filter") || "latest release");
   useEffect(() => {
     setMovies([]);
     setNotFound(false);
@@ -52,17 +52,17 @@ const AllMovies = () => {
   }, [page, filter, change]);
 
   const filterChange = (filt) => {
-    setParams({filter: filt})
+    setParams({ filter: filt });
     setFilter(filt);
   };
 
   const pageClick = (k) => {
-    if (k > moviesLen || k < 1) return;
-    navigate(`/movies/${k}`);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    if (k > moviesLen || k < 1) return;
+    navigate(`/movies/${k}?filter=${filter}`);
   };
 
   const searchRes = (movies) => {
@@ -102,7 +102,7 @@ const AllMovies = () => {
               })
             )
           ) : (
-            [...Array(10)].map((_, i) => <LoadingCard key={i} />)
+            [...Array(12)].map((_, i) => <LoadingCard key={i} />)
           )}
         </div>
         {pageShow ? (

@@ -21,3 +21,10 @@ $white: #fff;
         justify-content: center;
     }
 }
+
+@media screen and (max-width: 650px) {
+    .loaderCard {
+        width: 
+        31%;
+    }
+}
