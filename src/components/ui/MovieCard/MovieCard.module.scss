@@ -146,12 +146,26 @@ $white: #fff;
 }
 
 @media screen and (max-width: 650px) {
+    *{
+        transition: 0s !important;
+    }
     .movieCard {
         &.small {
             width: 31%;
             height: auto;
             aspect-ratio: 2/3;
             margin: 0 0 20px !important;
+            &:hover {
+                .movieCard__name {
+                    background-color: transparent;
+                    color: transparent;
+                }
+            }
+        }
+        &:hover {
+            img {
+                transform: none;
+            }
         }
     }
 }

@@ -54,6 +54,19 @@ $white: #fff;
     }
 }
 
+@media screen and (max-width: 650px) {
+    *{
+        transition: 0s !important;
+    }
+    .genreCard {
+        &:hover {
+            img {
+                transform: none;
+            }
+        }
+    }
+}
+
 
 @media screen and (max-width: 475px) {
     .genreCard {

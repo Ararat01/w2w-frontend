@@ -63,6 +63,9 @@ $white: #fff;
 }
 
 @media screen and (max-width: 725px) {
+    * {
+        transition: 0s !important;
+    }
     .select {
         min-width: 100px;
         button {
@@ -76,6 +79,9 @@ $white: #fff;
         top: 30px;
         button {
             width: auto;
+            &:hover {
+                color: $gray;
+            }
         }
     }
 }

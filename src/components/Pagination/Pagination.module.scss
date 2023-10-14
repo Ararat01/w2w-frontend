@@ -122,7 +122,39 @@ $white: #fff;
         }
     }
 }
-
+@media screen and (max-width: 650px) {
+    * {
+        transition: 0s !important;
+    }
+    .pagination {
+        &__arrow {
+            &:not(:disabled) {
+                &:first-child {
+                    &:hover {
+                        transform: none;
+                    }
+                }
+                &:last-child {
+                    &:hover {
+                        transform: none;
+                    }
+                }
+            }
+        }
+        &__pages {
+            display: none;
+            &_small {
+                display: flex;
+                button {
+                    &:hover {
+                        box-shadow: none;
+                        transform: none;
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 560px) {
     .pagination {
         &__pages {
@@ -140,7 +172,7 @@ $white: #fff;
             &:not(:disabled) {
                 &:first-child {
                     margin-right: 6px;
-                }   
+                }
                 &:last-child {
                     margin-left: 6px;
                 }

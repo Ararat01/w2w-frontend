@@ -87,3 +87,14 @@ $white: #fff;
         }
     }
 }
+@media screen and (max-width: 650px) {
+    *{
+        transition: 0s !important;
+    }
+    .reviewForm {
+        button:hover {
+            color: $red;
+            background-color: transparent;
+        }
+    }
+}

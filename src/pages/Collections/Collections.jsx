@@ -26,7 +26,7 @@ const Collections = () => {
             ? collections.map((col, i) => {
                 return <CollectionCard collection={col} key={i} />;
               })
-            : [...Array(8)].map((_, i) => <LoadingCard ratio={'16/9'} key={i} />)}
+            : [...Array(12)].map((_, i) => <LoadingCard card="horizontal" key={i} />)}
         </div>
       </div>
     </div>

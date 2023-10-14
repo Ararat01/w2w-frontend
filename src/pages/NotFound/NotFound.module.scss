@@ -48,3 +48,12 @@ $white: #fff;
         }
     }
 }
+@media screen and (max-width: 650px) {
+    .page {
+        .body {
+            a:hover {
+                border-color: transparent;
+            }
+        }
+    }
+}
