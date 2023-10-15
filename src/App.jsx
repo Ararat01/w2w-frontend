@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import styles from "./App.module.scss";
 import AllMovies from "./pages/AllMovies/AllMovies";
 import CollectionMovies from "./pages/CollectionMovies/CollectionMovies";
@@ -8,11 +10,9 @@ import Genres from "./pages/Genres/Genres";
 import Home from "./pages/Home/Home";
 import Log from "./pages/Log/Log";
 import Movie from "./pages/Movie/Movie";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
-  
   return (
     <div className="App">
       <main>
@@ -23,11 +23,15 @@ function App() {
       </main>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="home/" />} />
           <Route path="home/" element={<Home />} />
           <Route path="movies/:page" element={<AllMovies />} />
           <Route path="movie/:id" element={<Movie />} />
           <Route path="collections/" element={<Collections />} />
-          <Route path="collections/:collectionId" element={<CollectionMovies />} />
+          <Route
+            path="collections/:collectionId"
+            element={<CollectionMovies />}
+          />
           <Route path="genres/" element={<Genres />} />
           <Route path="genres/:genreName" element={<GenreMovies />} />
           <Route path="log/" element={<Log />} />
