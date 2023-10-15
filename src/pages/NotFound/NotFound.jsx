@@ -13,7 +13,7 @@ const NotFound = () => {
               Sorry, the page you're looking for doesn't exist. If you think
               somethin is broken, report a problem.
             </p>
-            <Link to={"/"}>Go Home</Link>
+            <Link to={"/home"}>Go Home</Link>
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ const Movie = () => {
   const navigate = useNavigate();
   const [movie, setMovie] = useState();
   const [isFavorite, setFavorite] = useState(false);
+  const [loadingAction, setLoading] = useState(false)
   const [change, setChange] = useState(1);
   const token = window.localStorage.getItem("token");
 

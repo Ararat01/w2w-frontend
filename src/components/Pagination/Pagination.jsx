@@ -1,15 +1,8 @@
 import React from "react";
 import styles from "./Pagination.module.scss";
 import Arrow from "../ui/Arrow/Arrow";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 const Pagination = ({ size = 1, pageHandler, page }) => {
-  let params = useParams();
-
-  useEffect(() => {
-    console.log(params.page);
-  }, params);
   return (
     <div className={styles.pagination}>
       <button
@@ -48,7 +41,7 @@ const Pagination = ({ size = 1, pageHandler, page }) => {
               </button>
             );
           }
-          if (page + i - 2 >= size) return;
+          if (page + i - 2 >= size) return <></>;
           return (
             <button
               key={i}
@@ -105,7 +98,7 @@ const Pagination = ({ size = 1, pageHandler, page }) => {
               </button>
             );
           }
-          if (page + i - 1 >= size) return;
+          if (page + i - 1 >= size) return <></>;
           return (
             <button
               key={i}

@@ -9,12 +9,7 @@ import styles from "./Form.module.scss";
 const ReviewForm = ({ movieId, onChange }) => {
   const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors, isValid },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       body: "",
     },
@@ -46,6 +41,7 @@ const ReviewForm = ({ movieId, onChange }) => {
         placeholder="Review"
         {...register("body")}
         name="body"
+        required
       />
       <button type="submit">Send</button>
     </form>

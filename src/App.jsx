@@ -23,7 +23,7 @@ function App() {
       </main>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="home/" element={<Home />} />
           <Route path="movies/:page" element={<AllMovies />} />
           <Route path="movie/:id" element={<Movie />} />
           <Route path="collections/" element={<Collections />} />

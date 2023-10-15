@@ -13,7 +13,7 @@ const Log = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (checkAuth()) {
-      navigate("/");
+      navigate("/home");
     }
   }, [navigate]);
 

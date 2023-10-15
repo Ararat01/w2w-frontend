@@ -11,10 +11,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [forgot, setForgot] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
+  const { register, handleSubmit, getValues } = useForm({
     defaultValues: {
       email: "",
       password: "",
@@ -22,13 +19,14 @@ const LoginForm = () => {
     mode: "onChange",
   });
 
+  
   const onSubmit = (values) => {
     if (window.localStorage.getItem("token") !== null) return;
     axios
       .post(`${API_URL}/auth/login`, values)
       .then((res) => {
         window.localStorage.setItem("token", res.data.token);
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => console.log(err.response.data));
   };
@@ -51,6 +49,7 @@ const LoginForm = () => {
     setForgot(false);
   };
 
+  
   return (
     <>
       {forgot ? (
@@ -68,12 +67,15 @@ const LoginForm = () => {
           </button>
         </form>
       ) : (
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input
             autoComplete="off"
             type="email"
             placeholder="Email"
-            {...register("email", { required: "Email.." })}
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             name="email"
           />
 
@@ -81,9 +83,13 @@ const LoginForm = () => {
             autoComplete="off"
             type="password"
             placeholder="Password"
-            {...register("password", { required: "Password.." })}
+            {...register("password", {
+              required: true,
+              minLength: 8,
+            })}
             name="password"
           />
+         
           <button className={styles.form__btn} type="submit">
             SUBMIT
           </button>

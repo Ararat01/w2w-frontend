@@ -30,7 +30,7 @@ const Header = ({ open = false }) => {
   return (
     <div>
       <header className={styles.header}>
-        <Link to={"/"} className={styles.header__logo}>
+        <Link to={"/home"} className={styles.header__logo}>
           <img
             className={styles.header__logo_img}
             src="/icons/w2w.png"
@@ -115,7 +115,9 @@ const Header = ({ open = false }) => {
             )}
           </div>
           <nav className={styles.mobileHeader__nav}>
-            <Link to="/" className={styles.mobileHeader__nav_link}>
+            <Link to="/home" className={`${styles.mobileHeader__nav_link} ${isRouteActive(
+                "/home"
+              )}`}>
               Home
             </Link>
             <Link
@@ -152,7 +154,7 @@ const Header = ({ open = false }) => {
             </Link>
           </nav>
         </div>
-        <Link to={"/"} className={styles.mobileHeader__logo}>
+        <Link to={"/home"} className={styles.mobileHeader__logo}>
           <img
             className={styles.mobileHeader__logo_img}
             src="/icons/w2w.png"

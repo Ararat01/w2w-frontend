@@ -9,7 +9,7 @@ import API_URL from "../../config";
 import LoadingCard from "../../components/ui/LoadingCard/LoadingCard";
 
 const Favorite = () => {
-  let [moviesArr, setMovies] = useState(null);
+  let [moviesArr, setMovies] = useState(false);
   const navigate = useNavigate();
   const token = window.localStorage.getItem("token");
 
@@ -22,7 +22,8 @@ const Favorite = () => {
           },
         })
         .then((res) => {
-          setMovies(res.data.length ? res.data : null);
+          console.log(res.data);
+          setMovies(res.data.length ? res.data : false);
         })
         .catch((err) => console.log(err));
     } else {
@@ -36,16 +37,16 @@ const Favorite = () => {
 
       <div className="container">
         <div className={styles.movies}>
-          {moviesArr !== null ? (
+          {moviesArr !== false ? (
             moviesArr.length ? (
               [...moviesArr].map((movie, i) => {
                 return <MovieCard key={i} movie={movie} css={"big"} />;
               })
             ) : (
-              [...Array(10)].map((_, i) => <LoadingCard key={i}/>)
+              <h3>You havn't got favorite movies yet</h3>
             )
           ) : (
-            <h3>You havn't got favorite movies yet</h3>
+            [...Array(12)].map((_, i) => <LoadingCard key={i} />)
           )}
         </div>
       </div>

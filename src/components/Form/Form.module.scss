@@ -13,6 +13,18 @@ $white: #fff;
     justify-content: center;
     align-items: center;
 
+    ul {
+        margin-bottom: 10px;
+        li {
+            font-size: 13px;
+            list-style: disc;
+            color: $red;
+            &.true {
+                color: $green;
+            }
+        }
+    }
+
     input {
         padding: 10px 15px;
         background-color: transparent;
