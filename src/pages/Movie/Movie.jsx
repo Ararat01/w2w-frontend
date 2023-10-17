@@ -14,7 +14,7 @@ const Movie = () => {
   const navigate = useNavigate();
   const [movie, setMovie] = useState();
   const [isFavorite, setFavorite] = useState(false);
-  const [loadingAction, setLoading] = useState(false)
+  const [loadingAction, setLoading] = useState(false);
   const [change, setChange] = useState(1);
   const token = window.localStorage.getItem("token");
 
@@ -85,6 +85,22 @@ const Movie = () => {
       <Header />
       {movie ? (
         <>
+          <div className={styles.movie_small}>
+            <div className={`${styles.top} container`}>
+              <div className={styles.title}>
+                <h2>{movie.Title}</h2>
+                <p>
+                  <b>{movie.Year}</b>
+                  <b>{movie.Rated}</b>
+                  <b>{movie.Runtime}</b>
+                </p>
+              </div>
+              <div className={styles.imdb}>
+                <img src="/icons/imdb.png" alt="" />
+                <h3>{`${movie.imdbRating}`} / 10</h3>
+              </div>
+            </div>
+          </div>
           <div className={styles.movie_big}>
             <div className={`${styles.top} container`}>
               <div className={styles.title}>
@@ -275,29 +291,6 @@ const Movie = () => {
             </div>
           </div>
           <div className={styles.movie_small}>
-            <div className={`${styles.top} container`}>
-              <div className={styles.title}>
-                <h2>{movie.Title}</h2>
-                <p>
-                  <b>{movie.Year}</b>
-                  <b>{movie.Rated}</b>
-                  <b>{movie.Runtime}</b>
-                </p>
-              </div>
-              <div className={styles.imdb}>
-                <img src="/icons/imdb.png" alt="" />
-                <h3>{`${movie.imdbRating}`} / 10</h3>
-              </div>
-            </div>
-            <div className={`${styles.trailer} container`}>
-              <iframe
-                src={movie.Trailer}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
             <div className={`${styles.info} container`}>
               <div className={styles.info__img}>
                 <img src={movie.Poster} alt="" />
@@ -307,6 +300,11 @@ const Movie = () => {
               </div>
             </div>
             <div className="container">
+              <div className={styles.genre}>
+                {[...movie.Genre].map((genre, i) => {
+                  return <span key={i}>{genre}</span>;
+                })}
+              </div>
               <div className={styles.ratings}>
                 <div className={styles.ratings__rate}>
                   <img src="/icons/imdb.png" alt="" />

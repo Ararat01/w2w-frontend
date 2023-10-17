@@ -360,16 +360,26 @@ $white: #fff;
             margin-right: 15px;
         }
     }
-
-    .trailer {
-        iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9;
+    .genre {
+        display: flex;
+        align-items: center;
+        padding-bottom: 5px;
+        span {
+            color: $red;
+            border: 1px solid $white;
+            display: block;
+            font-size: 13px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
         }
     }
+
     .info {
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -641,7 +651,28 @@ $white: #fff;
 
 @media screen and (max-width: 560px) {
     .movie_big {
-        display: none;
+        margin: 0;
+        padding: 0;
+        .top {
+            display: none;
+        }
+        .about {
+            display: none;
+        }
+        .pic {
+            display: block;
+            width: 100%;
+            margin: 0;
+            img {
+                display: none;
+            }
+            div {
+                display: none;
+            }
+            iframe {
+                width: 100%;
+            }
+        }
     }
     .movie_small {
         display: block;
